@@ -16,7 +16,7 @@ For more information, please contact the author at lee.kennedy-shaffer (at) yale
 
 -   `assignments`: a version of the five assigned homeworks (as both `.Rmd` and `.pdf` files), as well as the assigned midterm and final projects. If you are instructor designing a course and the homework solutions would be helpful to you, please reach out to me and I can share them.
 
--   `notes`: course slides and other notes/materials. *Please note:* these were designed to be presented as part of a course, alongside readings, discussion, instructor presentations, and assignments, are not meant to be standalone or self-learning resources.
+-   `notes`: selected course slides and other notes/materials. *Please note:* these were designed to be presented as part of a course, alongside readings, discussion, instructor presentations, and assignments, are not meant to be standalone or self-learning resources. Materials for other weeks may be available by request.
 
 ## License
 
