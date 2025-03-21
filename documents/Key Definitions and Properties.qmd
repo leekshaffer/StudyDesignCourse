@@ -2,7 +2,7 @@
 title: "Key Definitions and Properties"
 author: "Lee Kennedy-Shaffer"
 format: pdf
-editor: visual
+editor: source
 ---
 
 ## 1. Probability Review
