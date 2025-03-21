@@ -9,40 +9,62 @@ editor: source
 
 ### 1.1. Expectations
 
-For any random variables (RVs) $X$ and $Y$, constants $a$ and $b$, and events $C_1,\ldots,C_n$ that partition the sample space:
+For any random variables (RVs) $X$ and $Y$, constants $a$ and $b$, and events $C_1,\ldots,C_n$ that partition the sample space, *expectation/expected value* is defined as:
 
-\begin{align*}
-    E[X] &= P(X=1) \mbox{ for a binary RV } X \\
-    E[X] &= \sum_{x \in supp(X)} x P(X=x) \mbox{ for a discrete RV } X \\
-    E[X] &= \int_{-\infty}^{\infty} x f_X(x) \mbox{ for a continuous RV } X \mbox{ with PDF } f_X(x) \\
-    E[aX + bY] &= a E[X] + b E[Y] \qquad \mbox{(linearity of expectations)} \\
-    E[X] &= \sum_{i=1}^n E[X|C_i] P(C_i) \qquad \mbox{(law of total expectation)} \\
-    P[X=1] &= \sum_{i=1}^n P[X=1|C_i] P(C_i) \qquad \mbox{(law of total probability)} \\
-    E[X] &= E[E[X|Y]] \qquad \mbox{(law of total expectation or Adam's Law)} \\
-\end{align*}
+- $E[X] = P(X=1)$ for a binary RV $X$
+- $E[X] = \sum_{x \in supp(X)} x P(X=x)$ for a discrete RV $X$
+- $E[X] = \int_{-\infty}^{\infty} x f_X(x)$ for a continuous RV $X$ with PDF $f_X(x)$
+
+and has the following properties:
+
+- *Linearity of expectations:* $E[aX + bY] = a E[X] + b E[Y]$
+- *Law of total expectation:* $E[X] = \sum_{i=1}^n E[X|C_i] P(C_i)$
+- *Law of total probability:* $P[X=1] = \sum_{i=1}^n P[X=1|C_i] P(C_i)$
+- *Law of total expectation/Adam's Law:* $E[X] = E \left[ E[X|Y] \right]$
 
 ### 1.2. Variances
 
-For any RVs $X$ and $Y$ and constants $a$ and $b$:
+For any RVs $X$ and $Y$ and constants $a$ and $b$, the *variance* is given by
 
-\begin{align*}
-    Var(X) &= E[(X-E[X])^2] = E[X^2] - (E[X])^2 \\
-    Var(aX) &= a^2 Var(X) \\
-    Var(X+Y) &= Var(X) + Var(Y) + 2 Cov(X,Y) \\
-    Var(X-Y) &= Var(X) + Var(Y) - 2 Cov(X,Y) \\
-    Var(aX + bY) &= a^2 \cdot Var(X) + 2ab \cdot Cov(X,Y) + b^2 \cdot Var(Y) \\
-    Var(X+Y) &= Var(X-Y) = Var(X) + Var(Y) \mbox{ if } X \mbox{ and } Y \mbox{ are independent} \\
-    Var(aX+bY) &= a^2 Var(X) + b^2 Var(Y) \mbox{ if } X \mbox{ and } Y \mbox{ are independent} \\
-    Var(X) &= E[Var(X|Y)] + Var(E[X|Y]) \qquad \mbox{(law of total variance or Eve's Law)}
-\end{align*}
+$$
+Var(X) = E[(X-E[X])^2] = E[X^2] - (E[X])^2,
+$$
+
+the *covariance* is given by:
+
+$$
+Cov(X,Y) = E \left[ (X-E[X]) (Y-E[Y]) \right] = E[XY] - E[X]E[Y],
+$$
+
+and the *correlation* is given by:
+
+$$
+\rho_{XY} = Corr(X,Y) = \frac{Cov(X,Y)}{\sqrt{Var(X) Var(Y)}}.
+$$
+
+They have the following properties:
+
+- *Range:* $Var(X) \ge 0$ and $-1 \le \rho_{XY} \le 1$
+- *Independence:* If $X,Y$ are independent, $Cov(X,Y) = 0$ and $Corr(X,Y) = 0$
+- *Covariance-Variance Relationship:* $Var(X) = Cov(X,X)$
+- *Squared Constants:* $Var(aX) = a^2 Var(X)$
+- *Bilinearity:* $Var(aX + bY) = a^2 Var(X) + 2ab Cov(X,Y) + b^2 Var(Y)$ and $Cov(aX,bY) = ab Cov(X,Y)$
+  - $Var(X+Y) = Var(X) + Var(Y) + 2 Cov(X,Y)$
+  - $Var(X-Y) = Var(X) + Var(Y) - 2 Cov(X,Y)$
+  - If $X,Y$ are independent, $Var(X+Y) = Var(X-Y) = Var(X) + Var(Y)$ and $Var(aX+bY) = a^2 Var(X) + b^2 Var(Y)$
+- *Law of Total Variance/Eve's Law:* $Var(X) = E[Var(X|Y)] + Var(E[X|Y])$
 
 ### 1.3. Limiting Theorems
 
--   *i.i.d.:* A set of random variables are independent and identically distributed if they are all mutually independent and follow the same distribution.
+-   *i.i.d.:* A set of random variables are *independent and identically distributed (iid)* if they are all mutually independent and follow the same distribution.
 
 -   *Weak Law of Large Numbers:* Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E[X_i] = \mu$ for all $i$. Then $\lim_{n \to \infty} \bar{X}_n = \mu$, where $\bar{X}_n$ is the average of the first $n$ $X_i$'s: $\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$.
 
--   *Central Limit Theorem (CLT):* Let $X_1,X_2,\ldots$ be i.i.d. random variables with mean $\mu$ and variance $\sigma^2$. Then as $n \to \infty$: $$ \sqrt{n} \left( \frac{\bar{X}_n - \mu}{\sigma} \right) \overset{\mathcal{D}}{\to} N(0,1). $$
+-   *Central Limit Theorem (CLT):* Let $X_1,X_2,\ldots$ be i.i.d. random variables with mean $\mu$ and variance $\sigma^2$. Then as $n \to \infty$: 
+
+$$
+\sqrt{n} \left( \frac{\bar{X}_n - \mu}{\sigma} \right) \overset{\mathcal{D}}{\to} N(0,1).
+$$
 
 -   *Approximation Using CLT:* For i.i.d. RVs $X_1,X_2,\ldots$, for large $n$, the following distributions hold approximately: $$ \left( \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \right) \overset{\cdot}{\sim} N(0,1). $$ $$ \bar{X}_n \overset{\cdot}{\sim} N \left( \mu, \frac{\sigma^2}{n} \right). $$
 
@@ -52,15 +74,17 @@ For any RVs $X$ and $Y$ and constants $a$ and $b$:
 
 *Definitions:* Let $Y$ be a random variable that can take values 0 or 1. If $P(Y=1) = p$, then we say $Y$ is Bernoulli distributed and write $Y \sim Ber(p)$. Suppose $Y_1,\ldots,Y_n$ are i.i.d. with $Y_i \sim Ber(p)$ for all $i \in \{1,\ldots,n\}$. Then the sum of the $Y_i$'s given by $S_n = \sum_{i=1}^n Y_i$ is Binomial distributed with parameters $n$ and $p$. We write $S_n \sim Bin(n,p)$.
 
-*Properties:* Let $Y \sim Ber(p)$ and $S \sim Bin(n,p)$. Then: \begin{align*}
-    E[Y] &= p \\
-    E[1-Y] &= 1-p \\
-    Var(Y) &= p(1-p) \\
-    E[S] &= np \\
-    Var(S) &= np(1-p) \\
-    E \left[ \frac{S}{n} \right] &= p \\
-    Var \left( \frac{S}{n} \right) &= \frac{p(1-p)}{n}
-\end{align*}
+*Properties:* Let $Y \sim Ber(p)$ and $S \sim Bin(n,p)$. Then:
+
+$$
+  E[Y] = p \\
+  E[1-Y] = 1-p \\
+  Var(Y) = p(1-p) \\
+  E[S] = np \\
+  Var(S) = np(1-p) \\
+  E \left[ \frac{S}{n} \right] = p \\
+  Var \left( \frac{S}{n} \right) = \frac{p(1-p)}{n}
+$$
 
 #### 1.4.2. Normal (Gaussian) Distribution
 
@@ -68,11 +92,12 @@ For any RVs $X$ and $Y$ and constants $a$ and $b$:
 
 *Rules of thumb:* If $X \sim N(\mu,\sigma^2)$, then:
 
-\begin{align*}
-    P(\lvert X-\mu \rvert < \sigma) &\approx 0.68 \\
-    P(\lvert X-\mu \rvert < 2\sigma) &\approx 0.95  \quad \mbox{(more accurately, } 1.96\sigma \mbox{)}\\
-    P(\lvert X-\mu \rvert < 3\sigma) &\approx 0.997.
-\end{align*}
+$$
+    P(\lvert X-\mu \rvert < \sigma) \approx 0.68 \\
+    P(\lvert X-\mu \rvert < 1.96\sigma) \approx 0.95 \\
+    P(\lvert X-\mu \rvert < 2\sigma) \approx 0.954 \\
+    P(\lvert X-\mu \rvert < 3\sigma) \approx 0.997.
+$$
 
 *Location shifting and scaling of normal RVs:* Let $X \sim N(\mu, \sigma^2)$ be a normally-distributed RV. For any real number $a$ and positive real number $b$, $a + bX$ is also normally distributed and has distribution $a + bX \sim N(a + b \mu, b^2 \sigma^2)$.
 
@@ -87,11 +112,12 @@ $$
 *Definition:* Let $Y$ be a random variable that can take discrete values $\{0, 1, 2, \ldots\}$. Then $Y \sim Pois(\lambda)$ if it has the PMF $P[Y= y] = f_Y(y) = \frac{\lambda^y e^{-\lambda}}{y!}$.
 
 *Properties:* Let $Y \sim Pois(\lambda)$. Then:
-\begin{align*}
-  E[Y] &= \lambda. \\
-  Var(Y) &= \lambda. \\
-  P[Y = 0] &= e^{-\lambda}.
-\end{align*}
+
+$$
+  E[Y] = \lambda \\
+  Var(Y) = \lambda \\
+  P[Y = 0] = e^{-\lambda}
+$$
 
 The sum of independent Poisson-distributed random variables follows a Poisson distribution with expectation equal to the sum of the expectations of the random variables.
 
@@ -103,22 +129,35 @@ The sum of independent Poisson-distributed random variables follows a Poisson di
      Z = \begin{cases} 0 &\mbox{, with probability } p \\ Y &\mbox{, with probability } 1-p, \end{cases}
      $$ where $Y \sim Pois(\lambda)$ and $p$ is some positive probability. Then $E[Z] = (1-p) \lambda$ and $P[Z = 0] = p + (1-p) e^{-\lambda}$.
 
--   In other cases, the Poisson distribution where zeroes are removed (truncated) is a better model. We call this the zero-truncated Poisson distribution. If $Z \sim Pois(\lambda)$, then the zero-truncated version of $Z$, $Z|Z > 0$ has the following properties: \begin{align*}
-    P[Z=z | Z > 0] &= \frac{\lambda^z}{(e^\lambda - 1) z!} \\
-    E[Z|Z > 0] &= \frac{\lambda e^\lambda}{e^\lambda - 1} \\
-    Var(Z|Z > 0) &= \frac{\lambda + \lambda^2}{1-e^{-\lambda}} - \frac{\lambda^2}{(1-e^{-\lambda)^2}}.
-    \end{align*}
+-   In other cases, the Poisson distribution where zeroes are removed (truncated) is a better model. We call this the zero-truncated Poisson distribution. If $Z \sim Pois(\lambda)$, then the zero-truncated version of $Z$, $Z|Z > 0$ has the following properties: 
+
+$$
+  P[Z=z | Z > 0] = \frac{\lambda^z}{(e^\lambda - 1) z!} \\
+  E[Z|Z > 0] = \frac{\lambda e^\lambda}{e^\lambda - 1} \\
+  Var(Z|Z > 0) = \frac{\lambda + \lambda^2}{1-e^{-\lambda}} - \frac{\lambda^2}{(1-e^{-\lambda)^2}}
+$$
 
 #### 1.4.4. Exponential Distribution
 
 *Definition:* Let $Z$ be a random variable that can take positive values $(0,\infty)$ and has expectation $E[Z] = \frac{1}{\lambda}$. Then $Z \sim Exp(\lambda)$ if it has the PDF $f_Z(z) = \lambda e^{-\lambda z}$ on the support $(0,\infty)$.
 
-*Properties:* Let $Z \sim Exp(\lambda)$. Then: \begin{align*}
-    E[Z] &= 1/\lambda. \\
-    Var(Z) &= 1/\lambda^2. \\
-    F_Z(z) &= P[Z \le z] = 1-e^{-\lambda z} \mbox{, for } z > 0 \mbox{ (CDF)}. \\
-    P[Z \ge s + t | Z \ge t] &= P[Z \ge s] \mbox{ for any } s,t >0 \mbox{ (memoryless)}.
-\end{align*}
+*Properties:* Let $Z \sim Exp(\lambda)$. Then:
+
+$$
+    E[Z] = 1/\lambda \\
+    Var(Z) = 1/\lambda^2 \\
+$$
+
+The CDF is given by:
+$$
+F_Z(z) = P[Z \le z] = 1-e^{-\lambda z} \mbox{, for } z > 0
+$$
+
+The exponential distribution is also *memoryless*: the probability of the value falling in any fixed-width subsequent interval, conditional on not being below that, is always the same:
+
+$$
+P[Z \ge s + t | Z \ge t] = P[Z \ge s] \mbox{ for any } s,t >0
+$$
 
 ## 2. Key Definitions
 
@@ -169,10 +208,12 @@ The sum of independent Poisson-distributed random variables follows a Poisson di
 
 For a random sample of $n$ individuals, whose values are denoted $Y_1,\ldots,Y_n$, where each individual has expectation $E[Y] = \mu_Y$ and variance $Var(Y) = \sigma^2_Y$, the mean result $\bar{Y}_n = \frac{1}{n} \sum_{i=1}^n Y_i$ has properties:
 
-\begin{align*}
-    E[\bar{Y}_n] &= \frac{n E[Y_1]}{n} = \mu_Y \\
-    Var(\bar{Y}_n) &= \frac{Var(Y_1)}{n} = \frac{\sigma^2_Y}{n} \quad \mbox{assuming independence of individuals}
-\end{align*}
+$$
+E[\bar{Y}_n] = \frac{n E[Y_1]}{n} = \mu_Y \\
+Var(\bar{Y}_n) = \frac{Var(Y_1)}{n} = \frac{\sigma^2_Y}{n},
+$$
+
+where the variance result requires independence of individual outcomes.
 
 If $n$ is large, the Central Limit Theorem kicks in and we get the approximate sampling distribution: $\bar{Y}_n \overset{\cdot}{\sim} N \left( \mu_Y, \frac{\sigma^2_Y}{n} \right)$.
 
@@ -249,20 +290,25 @@ For an RCT (like in the previous section) where the estimand is $\theta = \mu_1 
 where $\sigma^2_1$ is the variance of the outcome of a single outcome in the intervention arm and $\sigma^2_0$ is the variance of the outcome of a single outcome in the control arm.
 
 From this, we can get a 95% confidence interval for the parameter value: 
-$$\theta \in \hat{\theta} \pm 1.96 \sqrt{Var(\hat{\theta})}$$
+
+$$
+\theta \in \hat{\theta} \pm 1.96 \sqrt{Var(\hat{\theta})}
+$$
 
 ### 3.3. Power and Sample Size Determination for RCTs
 
 Instead of (or in addition to) a confidence interval, we often conduct a hypothesis test of the null hypothesis that there is no difference between the mean outcomes in the two groups:
 
-\begin{align*}
-     H_0: ~ &\theta = 0 \\
-     H_A: ~ &\theta \neq 0
-\end{align*}
+$$
+H_0: ~ \theta = 0 \\
+H_A: ~ \theta \neq 0
+$$
 
 This can be conducted using a t-test with the test statistic:
 
-$$t_{obs} = \frac{\hat{\theta}}{Var(\hat{\theta})} = \frac{\bar{Y}_1 - \bar{Y}_0}{\sqrt{\frac{\sigma^2_1}{n_1} + \frac{\sigma^2_0}{n_0}}} \sim t_{n_1+n_0-1}$$
+$$
+t_{obs} = \frac{\hat{\theta}}{Var(\hat{\theta})} = \frac{\bar{Y}_1 - \bar{Y}_0}{\sqrt{\frac{\sigma^2_1}{n_1} + \frac{\sigma^2_0}{n_0}}} \sim t_{n_1+n_0-1}
+$$
 
 Using a normal approximation to the t-distribution (valid for large enough sample sizes), we can find a formula for the power ($1-\Delta$) of the hypothesis test:
 
@@ -284,7 +330,9 @@ $$
 n = \left[ \Phi^{-1} \left(1-\alpha/2 \right) - \Phi^{-1} (\Delta) \right]^2 \cdot 2 \cdot \left[ \frac{\sqrt{\frac{1}{2} (\sigma^2_0 + \sigma^2_1)}}{\theta_{MDE}} \right]^2
 $$
 
-For 80% power, $Phi^{-1}(\Delta) = -0.842$; for 90% power, $Phi^{-1}(\Delta) = -1.282$. For $\alpha = 0.1$, $\Phi^{-1}(1-\alpha/2) = 1.65$; for $\alpha = 0.05$, $\Phi^{-1}(1-\alpha/2) = 1.960$; and for $\alpha = 0.01$, $\Phi^{-1}(1-\alpha/2) = 2.576$.
+For 80% power, $Phi^{-1}(\Delta) = -0.842$; for 90% power, $Phi^{-1}(\Delta) = -1.282$. 
+
+For $\alpha = 0.1$, $\Phi^{-1}(1-\alpha/2) = 1.65$; for $\alpha = 0.05$, $\Phi^{-1}(1-\alpha/2) = 1.960$; and for $\alpha = 0.01$, $\Phi^{-1}(1-\alpha/2) = 2.576$.
 
 The value in the second set of brackets is often called $1/d$, where $d = \frac{\theta_{MDE}}{\sigma_p}$ is the standardized effect size (or Cohen's d value), the ratio of the minimum detectable effect size to the pooled (average across arms) standard deviation.
 
@@ -337,12 +385,12 @@ $$
 
 Under this approach:
 
-\begin{align*}
-    E[\hat{\theta}_s] &= \mu_{1,s} - \mu_{0,s}. \\
-    Var(\hat{\theta}_s) &= \frac{\sigma^2_{1,s}}{n_{1,s}} + \frac{\sigma^2_{0,s}}{n_{0,s}}. \\
-    E[\hat{\theta}_{strat}] &= \sum_{s=1}^S w_s (\mu_{1,s} - \mu_{0,s}). \\
-    Var(\hat{\theta}_{strat}) &= \sum_{s=1}^S w_s^2 \left( \frac{\sigma^2_{1,s}}{n_{1,s}} + \frac{\sigma^2_{0,s}}{n_{0,s}} \right).
-\end{align*}
+$$
+    E[\hat{\theta}_s] = \mu_{1,s} - \mu_{0,s} \\
+    Var(\hat{\theta}_s) = \frac{\sigma^2_{1,s}}{n_{1,s}} + \frac{\sigma^2_{0,s}}{n_{0,s}} \\
+    E[\hat{\theta}_{strat}] = \sum_{s=1}^S w_s (\mu_{1,s} - \mu_{0,s}) \\
+    Var(\hat{\theta}_{strat}) = \sum_{s=1}^S w_s^2 \left( \frac{\sigma^2_{1,s}}{n_{1,s}} + \frac{\sigma^2_{0,s}}{n_{0,s}} \right)
+$$
 
 Usually, a self-weighted estimator is used, where $w_s = \frac{n_{0,s} + n_{1,s}}{\sum_{s=1}^S (n_{0,s} + n_{1,s})}$, we assume that $\sigma^2_{1,s} = \sigma^2_{0,s} = \sigma^2_s$ for all $s$, and we randomize 1:1 within each stratum so that $n_{1,s} = n_{0,s} = n_s$. In that case:
 
