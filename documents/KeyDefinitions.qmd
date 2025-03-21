@@ -11,16 +11,16 @@ editor: source
 
 For any random variables (RVs) $X$ and $Y$, constants $a$ and $b$, and events $C_1,\ldots,C_n$ that partition the sample space, *expectation/expected value* is defined as:
 
-- $E[X] = P(X=1)$ for a binary RV $X$
-- $E[X] = \sum_{x \in supp(X)} x P(X=x)$ for a discrete RV $X$
-- $E[X] = \int_{-\infty}^{\infty} x f_X(x)$ for a continuous RV $X$ with PDF $f_X(x)$
+-   $E[X] = P(X=1)$ for a binary RV $X$
+-   $E[X] = \sum_{x \in supp(X)} x P(X=x)$ for a discrete RV $X$
+-   $E[X] = \int_{-\infty}^{\infty} x f_X(x)$ for a continuous RV $X$ with PDF $f_X(x)$
 
 and has the following properties:
 
-- *Linearity of expectations:* $E[aX + bY] = a E[X] + b E[Y]$
-- *Law of total expectation:* $E[X] = \sum_{i=1}^n E[X|C_i] P(C_i)$
-- *Law of total probability:* $P[X=1] = \sum_{i=1}^n P[X=1|C_i] P(C_i)$
-- *Law of total expectation/Adam's Law:* $E[X] = E \left[ E[X|Y] \right]$
+-   *Linearity of expectations:* $E[aX + bY] = a E[X] + b E[Y]$
+-   *Law of total expectation:* $E[X] = \sum_{i=1}^n E[X|C_i] P(C_i)$
+-   *Law of total probability:* $P[X=1] = \sum_{i=1}^n P[X=1|C_i] P(C_i)$
+-   *Law of total expectation/Adam's Law:* $E[X] = E \left[ E[X|Y] \right]$
 
 ### 1.2. Variances
 
@@ -44,15 +44,15 @@ $$
 
 They have the following properties:
 
-- *Range:* $Var(X) \ge 0$ and $-1 \le \rho_{XY} \le 1$
-- *Independence:* If $X,Y$ are independent, $Cov(X,Y) = 0$ and $Corr(X,Y) = 0$
-- *Covariance-Variance Relationship:* $Var(X) = Cov(X,X)$
-- *Squared Constants:* $Var(aX) = a^2 Var(X)$
-- *Bilinearity:* $Var(aX + bY) = a^2 Var(X) + 2ab Cov(X,Y) + b^2 Var(Y)$ and $Cov(aX,bY) = ab Cov(X,Y)$
-  - $Var(X+Y) = Var(X) + Var(Y) + 2 Cov(X,Y)$
-  - $Var(X-Y) = Var(X) + Var(Y) - 2 Cov(X,Y)$
-  - If $X,Y$ are independent, $Var(X+Y) = Var(X-Y) = Var(X) + Var(Y)$ and $Var(aX+bY) = a^2 Var(X) + b^2 Var(Y)$
-- *Law of Total Variance/Eve's Law:* $Var(X) = E[Var(X|Y)] + Var(E[X|Y])$
+-   *Range:* $Var(X) \ge 0$ and $-1 \le \rho_{XY} \le 1$
+-   *Independence:* If $X,Y$ are independent, $Cov(X,Y) = 0$ and $Corr(X,Y) = 0$
+-   *Covariance-Variance Relationship:* $Var(X) = Cov(X,X)$
+-   *Squared Constants:* $Var(aX) = a^2 Var(X)$
+-   *Bilinearity:* $Var(aX + bY) = a^2 Var(X) + 2ab Cov(X,Y) + b^2 Var(Y)$ and $Cov(aX,bY) = ab Cov(X,Y)$
+    -   $Var(X+Y) = Var(X) + Var(Y) + 2 Cov(X,Y)$
+    -   $Var(X-Y) = Var(X) + Var(Y) - 2 Cov(X,Y)$
+    -   If $X,Y$ are independent, $Var(X+Y) = Var(X-Y) = Var(X) + Var(Y)$ and $Var(aX+bY) = a^2 Var(X) + b^2 Var(Y)$
+-   *Law of Total Variance/Eve's Law:* $Var(X) = E[Var(X|Y)] + Var(E[X|Y])$
 
 ### 1.3. Limiting Theorems
 
@@ -60,13 +60,18 @@ They have the following properties:
 
 -   *Weak Law of Large Numbers:* Let $X_1,X_2,\ldots$ be i.i.d. random variables with $E[X_i] = \mu$ for all $i$. Then $\lim_{n \to \infty} \bar{X}_n = \mu$, where $\bar{X}_n$ is the average of the first $n$ $X_i$'s: $\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$.
 
--   *Central Limit Theorem (CLT):* Let $X_1,X_2,\ldots$ be i.i.d. random variables with mean $\mu$ and variance $\sigma^2$. Then as $n \to \infty$: 
+-   *Central Limit Theorem (CLT):* Let $X_1,X_2,\ldots$ be i.i.d. random variables with mean $\mu$ and variance $\sigma^2$. Then as $n \to \infty$:
 
 $$
 \sqrt{n} \left( \frac{\bar{X}_n - \mu}{\sigma} \right) \overset{\mathcal{D}}{\to} N(0,1).
 $$
 
--   *Approximation Using CLT:* For i.i.d. RVs $X_1,X_2,\ldots$, for large $n$, the following distributions hold approximately: $$ \left( \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \right) \overset{\cdot}{\sim} N(0,1). $$ $$ \bar{X}_n \overset{\cdot}{\sim} N \left( \mu, \frac{\sigma^2}{n} \right). $$
+-   *Approximation Using CLT:* For i.i.d. RVs $X_1,X_2,\ldots$, for large $n$, the following distributions hold approximately:
+
+$$
+\left( \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \right) \overset{\cdot}{\sim} N(0,1). \\
+\bar{X}_n \overset{\cdot}{\sim} N \left( \mu, \frac{\sigma^2}{n} \right).
+$$
 
 ### 1.4. Key Distributions
 
@@ -76,15 +81,13 @@ $$
 
 *Properties:* Let $Y \sim Ber(p)$ and $S \sim Bin(n,p)$. Then:
 
-$$
-  E[Y] = p \\
-  E[1-Y] = 1-p \\
-  Var(Y) = p(1-p) \\
-  E[S] = np \\
-  Var(S) = np(1-p) \\
-  E \left[ \frac{S}{n} \right] = p \\
-  Var \left( \frac{S}{n} \right) = \frac{p(1-p)}{n}
-$$
+-   $E[Y] = p$
+-   $E[1-Y] = 1-p$
+-   $Var(Y) = p(1-p)$
+-   $E[S] = E \left[ \sum_{i=1}^n Y_i \right] = \sum_{i=1}^n E[Y_i] = np$
+-   $Var(S) = Var \left( \sum_{i=1}^n Y_i \right) = np$
+-   $E \left[ \frac{S}{n} \right] = p$
+-   $Var \left( \frac{S}{n} \right) = \frac{p(1-p)}{n}$
 
 #### 1.4.2. Normal (Gaussian) Distribution
 
@@ -92,12 +95,9 @@ $$
 
 *Rules of thumb:* If $X \sim N(\mu,\sigma^2)$, then:
 
-$$
-    P(\lvert X-\mu \rvert < \sigma) \approx 0.68 \\
-    P(\lvert X-\mu \rvert < 1.96\sigma) \approx 0.95 \\
-    P(\lvert X-\mu \rvert < 2\sigma) \approx 0.954 \\
-    P(\lvert X-\mu \rvert < 3\sigma) \approx 0.997.
-$$
+-   $P(\lvert X-\mu \rvert < \sigma) \approx 0.68$
+-   $P(\lvert X-\mu \rvert < 2\sigma) \approx 0.95$ (more accurately, use $1.96\sigma$)
+-   $P(\lvert X-\mu \rvert < 3\sigma) \approx 0.997$
 
 *Location shifting and scaling of normal RVs:* Let $X \sim N(\mu, \sigma^2)$ be a normally-distributed RV. For any real number $a$ and positive real number $b$, $a + bX$ is also normally distributed and has distribution $a + bX \sim N(a + b \mu, b^2 \sigma^2)$.
 
@@ -113,11 +113,9 @@ $$
 
 *Properties:* Let $Y \sim Pois(\lambda)$. Then:
 
-$$
-  E[Y] = \lambda \\
-  Var(Y) = \lambda \\
-  P[Y = 0] = e^{-\lambda}
-$$
+-   $E[Y] = \lambda$
+-   $Var(Y) = \lambda$
+-   $P[Y=0] = e^{-\lambda}$
 
 The sum of independent Poisson-distributed random variables follows a Poisson distribution with expectation equal to the sum of the expectations of the random variables.
 
@@ -126,29 +124,23 @@ The sum of independent Poisson-distributed random variables follows a Poisson di
 -   The negative binomial distribution $Y \sim NB(r,p)$ has the same support and PMF $f_Y(y) = \binom{k+r-1}{k} (1-p)^k p^r$, expectation $\frac{r(1-p)}{p}$, and variance $\frac{r(1-p)}{p^2}$. In the limit as $p \to 1$ with fixed expectation, the negative binomial distribution converges to the Poisson distribution with the same expectation.
 
 -   In some cases, the Poisson distribution under-represents the number of zeros in an otherwise Poisson-distributed population. A zero-inflated Poisson distribution can then be used: $$
-     Z = \begin{cases} 0 &\mbox{, with probability } p \\ Y &\mbox{, with probability } 1-p, \end{cases}
-     $$ where $Y \sim Pois(\lambda)$ and $p$ is some positive probability. Then $E[Z] = (1-p) \lambda$ and $P[Z = 0] = p + (1-p) e^{-\lambda}$.
+    Z = \begin{cases} 0 &\mbox{, with probability } p \\ Y &\mbox{, with probability } 1-p, \end{cases}
+    $$ where $Y \sim Pois(\lambda)$ and $p$ is some positive probability. Then $E[Z] = (1-p) \lambda$ and $P[Z = 0] = p + (1-p) e^{-\lambda}$.
 
--   In other cases, the Poisson distribution where zeroes are removed (truncated) is a better model. We call this the zero-truncated Poisson distribution. If $Z \sim Pois(\lambda)$, then the zero-truncated version of $Z$, $Z|Z > 0$ has the following properties: 
+-   In other cases, the Poisson distribution where zeroes are removed (truncated) is a better model. We call this the zero-truncated Poisson distribution. If $Z \sim Pois(\lambda)$, then the zero-truncated version of $Z$, $Z|Z > 0$ has the following properties:
 
-$$
-  P[Z=z | Z > 0] = \frac{\lambda^z}{(e^\lambda - 1) z!} \\
-  E[Z|Z > 0] = \frac{\lambda e^\lambda}{e^\lambda - 1} \\
-  Var(Z|Z > 0) = \frac{\lambda + \lambda^2}{1-e^{-\lambda}} - \frac{\lambda^2}{(1-e^{-\lambda)^2}}
-$$
+    -   $P[Z=z | Z > 0] = \frac{\lambda^z}{(e^\lambda - 1) z!}$
+    -   $E[Z|Z > 0] = \frac{\lambda e^\lambda}{e^\lambda - 1}$
+    -   $Var(Z|Z > 0) = \frac{\lambda + \lambda^2}{1-e^{-\lambda}} - \frac{\lambda^2}{(1-e^{-\lambda)^2}}$
 
 #### 1.4.4. Exponential Distribution
 
 *Definition:* Let $Z$ be a random variable that can take positive values $(0,\infty)$ and has expectation $E[Z] = \frac{1}{\lambda}$. Then $Z \sim Exp(\lambda)$ if it has the PDF $f_Z(z) = \lambda e^{-\lambda z}$ on the support $(0,\infty)$.
 
-*Properties:* Let $Z \sim Exp(\lambda)$. Then:
-
-$$
-    E[Z] = 1/\lambda \\
-    Var(Z) = 1/\lambda^2 \\
-$$
+*Properties:* Let $Z \sim Exp(\lambda)$. Then it has expectation $E[Z] = \frac{1}{\lambda}$ and variance $Var(Z) = \frac{1}{\lambda^2}$.
 
 The CDF is given by:
+
 $$
 F_Z(z) = P[Z \le z] = 1-e^{-\lambda z} \mbox{, for } z > 0
 $$
@@ -175,11 +167,11 @@ $$
 
 ### 2.2. Quantifying Error and Variability
 
-- *Bias:* the difference between the expectation of the estimator and the true value of the estimand. Lower bias corresponds to higher *accuracy* of the estimator.
+-   *Bias:* the difference between the expectation of the estimator and the true value of the estimand. Lower bias corresponds to higher *accuracy* of the estimator.
     -   $Bias(\hat{\theta};\theta) = E[\hat{\theta}] - \theta$.
     -   An estimator $\hat{\theta}$ is *unbiased* for $\theta$ if $Bias(\hat{\theta};\theta) = 0$; that is, if $E[\hat{\theta}] = \theta$.
     -   Note the $;\theta$ part of the notation is often dropped, with the estimand of comparison implicit.
-- *Sampling Variance/Variability:* the variance of the estimator, an operating characteristic and key part of the sampling distribution. Denoted $Var(\hat{\theta})$. Lower sampling variance corresponds to higher *precision* of the estimator.
+-   *Sampling Variance/Variability:* the variance of the estimator, an operating characteristic and key part of the sampling distribution. Denoted $Var(\hat{\theta})$. Lower sampling variance corresponds to higher *precision* of the estimator.
 -   The *standard error* of an estimator is its sampling standard deviation, or the square root of the sampling variance: $SE(\hat{\theta}) = \sqrt{Var(\hat{\theta})}$.
 -   A *X% confidence interval (CI)* is the set of values of the parameter that gives us X % confidence that the true parameter is within those values. That is, if we repeated the experiment an infinite number of times, X % of the CIs would contain the true parameter.
     -   For a 95% CI where the estimator has a normal sampling distribution, the interval is $\hat{\theta} \pm 1.96 SE(\hat{\theta})$.
@@ -188,34 +180,34 @@ $$
     -   $MSE(\hat{\theta};\theta) = E[(\hat{\theta} - \theta)^2]$.
     -   $MSE(\hat{\theta};\theta) = [Bias(\hat{\theta},\theta)]^2 + Var(\hat{\theta})$.
 -   To compare the *efficiency* of design 1 (with estimator $\hat{\theta}_1$) compared to design 2 (with estimator $\hat{\theta}_2$), with the same sample size, we can use the *design effect (DE)*. A design effect less than 1 indicates that design 1 is more efficent (has a lower variance for the same sample size) than design 2. Usually, design 2 is some simple design (e.g., SRS). It is calculated as follows:
-    - $DE = \frac{Var(\hat{\theta}_1)}{Var(\hat{\theta}_2)}.$
+    -   $DE = \frac{Var(\hat{\theta}_1)}{Var(\hat{\theta}_2)}.$
 
 ### 2.3. Sampling Designs
 
 #### 2.3.1. General Definitions
 
-- *Nonprobability sampling* refers to any sampling scheme that does not involve randomness. E.g., convenience sampling or a fixed set of study units.
-- *Probability sampling* refers to any sampling scheme that does involve randomness.
-- A *systematic sample* is a sample of the population chosen by a rule to be balanced or representative along some set of known covariates or characteristics of the population. It is usually a probability sample but with a set repetition.
-- *Simple random sampling (SRS)* is a probability sampling technique where each individual in the population is equally likely to be selected into the sample.
-- *Nonresponse bias* occurs when study units with a certain value of the characteristic of interest are more likely not to respond to the survey/more likely not to be sampled than others.
-- *Measurement error* occurs when the recorded response differs from the truth. This causes *measurement bias* if it is more likely to occur in one direction than another.
-- *Stratified sampling* is a probability sampling technique where the population is divided into $J$ groups (called *strata*) and SRS is conducted within each stratum. For each stratum $j$, $n_j$ study units are chosen at random, and a within-stratum estimator $\hat{\theta}_j$ is calculated. Then the overall estimator is some weighted average of the within-stratum estimators: $\hat{\theta} = \sum_{j=1}^J w_j \hat{\theta}_j$. Weights are chosen for desired operating characteristics; to get an unbiased $\hat{\theta}$, the weights should be equal to the proportion of the population that is in that stratum. That is, we should choose $w_j = P[S_i = j]$ where $P[S_i = j]$ is the true probability that a randomly-chosen unit from the population is in stratum $j$.
-- *Self-weighted stratified sampling* refers to a stratified sample where the $n_j$ values (the number of study units sampled in stratum $j$) are selected to be proportional to the relative size of that stratum in the population. That is, $n_j = P[S_i = j] \cdot n$, where $n$ is the total sample size and $P[S_i = j]$ is the true probability that a randomly-chosen unit from the population is in stratum $j$. This is generally the lowest-variance unbiased stratified sampling scheme.
-- *Poststratification* is the weighting of responses in the analysis phase to match pre-determined proportions of key covariates. E.g., the population is divided into $J$ distinct groups and the average response for each group is weighted to match the proportion of the population made up by that group. Note that it gives no control over $n_j$, the number of study units in each group.
+-   *Nonprobability sampling* refers to any sampling scheme that does not involve randomness. E.g., convenience sampling or a fixed set of study units.
+-   *Probability sampling* refers to any sampling scheme that does involve randomness.
+-   A *systematic sample* is a sample of the population chosen by a rule to be balanced or representative along some set of known covariates or characteristics of the population. It is usually a probability sample but with a set repetition.
+-   *Simple random sampling (SRS)* is a probability sampling technique where each individual in the population is equally likely to be selected into the sample.
+-   *Nonresponse bias* occurs when study units with a certain value of the characteristic of interest are more likely not to respond to the survey/more likely not to be sampled than others.
+-   *Measurement error* occurs when the recorded response differs from the truth. This causes *measurement bias* if it is more likely to occur in one direction than another.
+-   *Stratified sampling* is a probability sampling technique where the population is divided into $J$ groups (called *strata*) and SRS is conducted within each stratum. For each stratum $j$, $n_j$ study units are chosen at random, and a within-stratum estimator $\hat{\theta}_j$ is calculated. Then the overall estimator is some weighted average of the within-stratum estimators: $\hat{\theta} = \sum_{j=1}^J w_j \hat{\theta}_j$. Weights are chosen for desired operating characteristics; to get an unbiased $\hat{\theta}$, the weights should be equal to the proportion of the population that is in that stratum. That is, we should choose $w_j = P[S_i = j]$ where $P[S_i = j]$ is the true probability that a randomly-chosen unit from the population is in stratum $j$.
+-   *Self-weighted stratified sampling* refers to a stratified sample where the $n_j$ values (the number of study units sampled in stratum $j$) are selected to be proportional to the relative size of that stratum in the population. That is, $n_j = P[S_i = j] \cdot n$, where $n$ is the total sample size and $P[S_i = j]$ is the true probability that a randomly-chosen unit from the population is in stratum $j$. This is generally the lowest-variance unbiased stratified sampling scheme.
+-   *Poststratification* is the weighting of responses in the analysis phase to match pre-determined proportions of key covariates. E.g., the population is divided into $J$ distinct groups and the average response for each group is weighted to match the proportion of the population made up by that group. Note that it gives no control over $n_j$, the number of study units in each group.
 
 #### 2.3.2. Operating Characteristics of Random Samples
 
 For a random sample of $n$ individuals, whose values are denoted $Y_1,\ldots,Y_n$, where each individual has expectation $E[Y] = \mu_Y$ and variance $Var(Y) = \sigma^2_Y$, the mean result $\bar{Y}_n = \frac{1}{n} \sum_{i=1}^n Y_i$ has properties:
 
-$$
-E[\bar{Y}_n] = \frac{n E[Y_1]}{n} = \mu_Y \\
-Var(\bar{Y}_n) = \frac{Var(Y_1)}{n} = \frac{\sigma^2_Y}{n},
-$$
+-   *Expectation:* $E[\bar{Y}_n] = \frac{n E[Y_1]}{n} = \mu_Y$
+-   *Variance:* $Var(\bar{Y}_n) = \frac{Var(Y_1)}{n} = \frac{\sigma^2_Y}{n}$, assuming independent observations.
 
-where the variance result requires independence of individual outcomes.
+If $n$ is large, the Central Limit Theorem kicks in and we get the approximate sampling distribution:
 
-If $n$ is large, the Central Limit Theorem kicks in and we get the approximate sampling distribution: $\bar{Y}_n \overset{\cdot}{\sim} N \left( \mu_Y, \frac{\sigma^2_Y}{n} \right)$.
+$$
+\bar{Y}_n \overset{\cdot}{\sim} N \left( \mu_Y, \frac{\sigma^2_Y}{n} \right)
+$$
 
 Note that for a proportion (where $Y_i = 1$ if individual $i$ responds Yes and 0 if they respond No), the expectation $E[Y] = P[Y = 1]$ and the variance is $Var(Y) = P[Y=1] \left( 1 - P[Y=1] \right)$. If the true value of the proportion in the population (the estimand) is $\theta$, then $E[Y] = \theta$ and $Var(Y) = \theta (1-\theta)$, and you can plug these into the above equations as $\mu_Y$ and $\sigma^2_Y$, respectively.
 
@@ -239,25 +231,25 @@ The notation is the same as for Stratified Samples. In this case, however, $n_j$
 
 #### 2.4.1. General Definitions
 
-- A *randomized controlled trial (RCT)* is a study that compares two or more *treatment arms*, often a new intervention and a standard of care or placebo. Investigators controls factors as much as possible by specifying a population, treatment regimens, and outcomes. Investigators also randomize participants to the trial arms.
-- A *clinical trial* is a study, usually a RCT, in which a new medicine or medical project is compared to a standard of care and/or placebo.
-- A *placebo* treatment is an inactive treatment (one that should not affect the outcome biologically) that mimics the appearance or process of the new intervention. It is especially used to ensure concealed allocation and masking.
-- *Masking*, allocation concealment, or "blinding" is the process of concealing from study participants (single-masked) and providers/assessors (double-masked) which participant is in which treatment arm. It aims to reduce bias from differential loss-to-follow-up or measurement error.
-- *Positivity* is needed for causal inference. Study units must have a positive probability of being in each treatment arm in order to enable comparisons across those arms.
-- *Consistency* in causal inference refers to the specific following of the treatment arm's protocol. In other words, that the outcomes reflect the treatment arm as designed.
-- *Exchangeability* is the property that treatment arm groups would have, on average, the same outcome value in the absence of the new intervention. Randomization is used to ensure exchangeability by eliminating *confounding bias*: bias arising from other factors that are predictive of both the treatment arm and the outcome. This protects *internal validity*: are we estimating what we think we are?
-- *Intercurrent events* are events that occur after the randomization/initiation of the intervention. This can include failure to adhere to the assigned treatment regimen, drop-out from the study or loss to follow-up, or emergency "rescue" interventions. They can cause violations of exchangeability because they are not randomized. Two common approaches to handling these are:
-  - *Intention-to-treat (ITT) analysis:* analyze all data in the group the participant was assigned regardless of adherence to assignment. High validity, targets policy of treatment assignment.
-  - *Per-protocol (PP) analysis:* analyze only the data from those who follow their assignment perfectly. Targets actual effect of intervention itself, but risks bias (targets effect on compliers).
-- *Generalizability* is the ability of the study's results to be applicable to other populations, subgroups, or experimental conditions. Also known as **transportability** or **external validity**. There is often a tradeoff between internal validity (can we reasonably assume that our sample represents the population of interest) and external validity (how broad is our population of interest? How well will our results generalize to other populations?).
+-   A *randomized controlled trial (RCT)* is a study that compares two or more *treatment arms*, often a new intervention and a standard of care or placebo. Investigators controls factors as much as possible by specifying a population, treatment regimens, and outcomes. Investigators also randomize participants to the trial arms.
+-   A *clinical trial* is a study, usually a RCT, in which a new medicine or medical project is compared to a standard of care and/or placebo.
+-   A *placebo* treatment is an inactive treatment (one that should not affect the outcome biologically) that mimics the appearance or process of the new intervention. It is especially used to ensure concealed allocation and masking.
+-   *Masking*, allocation concealment, or "blinding" is the process of concealing from study participants (single-masked) and providers/assessors (double-masked) which participant is in which treatment arm. It aims to reduce bias from differential loss-to-follow-up or measurement error.
+-   *Positivity* is needed for causal inference. Study units must have a positive probability of being in each treatment arm in order to enable comparisons across those arms.
+-   *Consistency* in causal inference refers to the specific following of the treatment arm's protocol. In other words, that the outcomes reflect the treatment arm as designed.
+-   *Exchangeability* is the property that treatment arm groups would have, on average, the same outcome value in the absence of the new intervention. Randomization is used to ensure exchangeability by eliminating *confounding bias*: bias arising from other factors that are predictive of both the treatment arm and the outcome. This protects *internal validity*: are we estimating what we think we are?
+-   *Intercurrent events* are events that occur after the randomization/initiation of the intervention. This can include failure to adhere to the assigned treatment regimen, drop-out from the study or loss to follow-up, or emergency "rescue" interventions. They can cause violations of exchangeability because they are not randomized. Two common approaches to handling these are:
+    -   *Intention-to-treat (ITT) analysis:* analyze all data in the group the participant was assigned regardless of adherence to assignment. High validity, targets policy of treatment assignment.
+    -   *Per-protocol (PP) analysis:* analyze only the data from those who follow their assignment perfectly. Targets actual effect of intervention itself, but risks bias (targets effect on compliers).
+-   *Generalizability* is the ability of the study's results to be applicable to other populations, subgroups, or experimental conditions. Also known as **transportability** or **external validity**. There is often a tradeoff between internal validity (can we reasonably assume that our sample represents the population of interest) and external validity (how broad is our population of interest? How well will our results generalize to other populations?).
 
 #### 2.4.2. Hypothesis Testing
 
-- A *Type I Error* of a hypothesis test occurs when the null hypothesis is incorrectly rejected (i.e., when the null is true). A *Type II Error* occurs when the null hypothesis is incorrectly not rejected (i.e., fail to reject when the null is not true).
-- The *significance level* is the probability of a Type I Error, generally denoted $\alpha$. $\alpha = P(\mbox{reject } H_0 | H_0)$. Common $\alpha$ values include 0.05 (most common, corresponds to a 95% confidence interval), 0.01, and 0.1.
-- The *p-value* is the result of the hypothesis test that is compared to the significance level. If $p < \alpha$, we reject the null hypothesis; otherwise we fail to reject the null hypothesis.
-- The *power* of the test is one minus the probability of a Type II Error, often denoted $1-\Delta$. $1-Delta = 1 - P(\mbox{fail to reject } H_0 | H_A)$. Note that it depends on the specific value of the parameter.
-- The *minimum detectable effect* or *meaningful effect size* is the minimum value of the estimand, $\theta$, that we want to have our chosen power to detect. So it is the value of the effect size that we assume in order to calculate the power of our test.
+-   A *Type I Error* of a hypothesis test occurs when the null hypothesis is incorrectly rejected (i.e., when the null is true). A *Type II Error* occurs when the null hypothesis is incorrectly not rejected (i.e., fail to reject when the null is not true).
+-   The *significance level* is the probability of a Type I Error, generally denoted $\alpha$. $\alpha = P(\mbox{reject } H_0 | H_0)$. Common $\alpha$ values include 0.05 (most common, corresponds to a 95% confidence interval), 0.01, and 0.1.
+-   The *p-value* is the result of the hypothesis test that is compared to the significance level. If $p < \alpha$, we reject the null hypothesis; otherwise we fail to reject the null hypothesis.
+-   The *power* of the test is one minus the probability of a Type II Error, often denoted $1-\Delta$. $1-\Delta = 1 - P(\mbox{fail to reject } H_0 | H_A)$. Note that it depends on the specific value of the parameter.
+-   The *minimum detectable effect* or *meaningful effect size* is the minimum value of the estimand, $\theta$, that we want to have our chosen power to detect. So it is the value of the effect size that we assume in order to calculate the power of our test.
 
 ## 3. Randomized Controlled Trials
 
@@ -268,7 +260,7 @@ If we want to estimate the difference in mean outcomes (whether they are continu
 \begin{align*}
      E[\hat{\theta}] &= E \left[ \bar{Y}_1 - \bar{Y}_0 \right] = E[\bar{Y}_1] - E[\bar{Y}_0] \\
      &= \frac{1}{n_1} \sum_{i=1}^{n_1} E[ Y_{1,i}] - \frac{1}{n_0} \sum_{j=1}^{n_0} E[Y_{0,j}] \mbox{, by linearity of expectation} \\
-     &= E[Y|X=1] - E[Y|X=0] \mbox{, since we assume our individuals are representative of the population} \\
+     &= E[Y|X=1] - E[Y|X=0] \mbox{, since we assume individuals are representative of the population} \\
      &= E[Y_1|X=1] - E[Y_0 | X=0] \mbox{, by consistency} \\
      &= E[Y_1] - E[Y_0] \mbox{, by exchangeability} \\
      &= \mu_1 - \mu_0 = \theta.
@@ -286,10 +278,10 @@ For an RCT (like in the previous section) where the estimand is $\theta = \mu_1 
      &= \frac{1}{n_1} Var(Y|X=1) + \frac{1}{n_0} Var(Y|X=0) \\
      &= \frac{\sigma^2_1}{n_1} + \frac{\sigma^2_0}{n_0},
 \end{align*}
- 
+
 where $\sigma^2_1$ is the variance of the outcome of a single outcome in the intervention arm and $\sigma^2_0$ is the variance of the outcome of a single outcome in the control arm.
 
-From this, we can get a 95% confidence interval for the parameter value: 
+From this, we can get a 95% confidence interval for the parameter value:
 
 $$
 \theta \in \hat{\theta} \pm 1.96 \sqrt{Var(\hat{\theta})}
@@ -330,7 +322,7 @@ $$
 n = \left[ \Phi^{-1} \left(1-\alpha/2 \right) - \Phi^{-1} (\Delta) \right]^2 \cdot 2 \cdot \left[ \frac{\sqrt{\frac{1}{2} (\sigma^2_0 + \sigma^2_1)}}{\theta_{MDE}} \right]^2
 $$
 
-For 80% power, $Phi^{-1}(\Delta) = -0.842$; for 90% power, $Phi^{-1}(\Delta) = -1.282$. 
+For 80% power, $\Phi^{-1}(\Delta) = -0.842$; for 90% power, $\Phi^{-1}(\Delta) = -1.282$.
 
 For $\alpha = 0.1$, $\Phi^{-1}(1-\alpha/2) = 1.65$; for $\alpha = 0.05$, $\Phi^{-1}(1-\alpha/2) = 1.960$; and for $\alpha = 0.01$, $\Phi^{-1}(1-\alpha/2) = 2.576$.
 
@@ -340,7 +332,7 @@ The value in the second set of brackets is often called $1/d$, where $d = \frac{
 
 *Online formula sheet:* Various power and sample size formulae can be found at [this BU SPH site](https://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Power/BS704_Power_print.html). Be sure to find the right setting and read the definitions of the inputs carefully, as the notation may be different from what we used in class.
 
-*Online calculator:* Some power and sample size calculations can be done at [this UBC site](\href%7Bhttps://www.stat.ubc.ca/~rollin/stats/ssize/). Click on "Comparing Means for Two Independent Samples" for a t-test (difference in means for continuous RVs) calculation and "Comparing Proportions for Two Independent Samples" for a test of difference of proportions (risk difference for binary RVs) calculation.
+*Online calculator:* Some power and sample size calculations can be done at [this UBC site](https://www.stat.ubc.ca/~rollin/stats/ssize/). Click on "Comparing Means for Two Independent Samples" for a t-test (difference in means for continuous RVs) calculation and "Comparing Proportions for Two Independent Samples" for a test of difference of proportions (risk difference for binary RVs) calculation.
 
 *Using R:* power or sample size for a comparison of two proportions (risk difference) can be conducted in `R` using `power.prop.test()`. Power or sample size for a comparison of two continuous outcome means (mean difference) can be conducted in R using `pwr.t.test()` in the `pwr` library. Note that the values may be slightly different than using the above formula because they use more precise distributions instead of a normal approximation. For both functions, you can input the assumed parameters (probability of the outcome in both arms for the proportions test or Cohen's d value for the means test) and 2 of the 3 of sample size, significance level, and power, and it will give you the one you do not enter. Use `alternative="two.sided"` and, for the means test, `type="two.sample"`.
 
@@ -418,16 +410,16 @@ The *Type I Error Rate* of a hypothesis test is the probability of having a sign
 
 Factorial trials may be:
 
-- *complete:* having every combination of possible levels represented) or incomplete, and either
-- *balanced:* (each combination of possible levels represented has the same number of study units or *replicates*) or *unbalanced*.
+-   *complete:* having every combination of possible levels represented) or incomplete, and either
+-   *balanced:* (each combination of possible levels represented has the same number of study units or *replicates*) or *unbalanced*.
 
 Factorial trials can be used to assess several different estimands or causal contrasts:
 
-- Main effects* refer to the average effects comparing two or more levels of a single factor. The main effects estimated are the average across all levels of the other factors.
-- Simple effects* refer to the specific effects comparing two or more levels of a single factor, within a specific level of another factor (or factors).
-- *Interaction effects* refer to the difference in the simple effect based on the level of some other factor, or the difference between the main and simple effects.
-- *Higher-order interaction effects* can occur if there are more than 2 factors.
-- Comparisons across the individual cells (combinations) can also be made directly.
+-   Main effects\* refer to the average effects comparing two or more levels of a single factor. The main effects estimated are the average across all levels of the other factors.
+-   Simple effects\* refer to the specific effects comparing two or more levels of a single factor, within a specific level of another factor (or factors).
+-   *Interaction effects* refer to the difference in the simple effect based on the level of some other factor, or the difference between the main and simple effects.
+-   *Higher-order interaction effects* can occur if there are more than 2 factors.
+-   Comparisons across the individual cells (combinations) can also be made directly.
 
 These effects can often be put into a multiple regression model, and different effects identified as different linear combinations of the regression coefficients.
 
@@ -441,7 +433,7 @@ For individual $k$ in cluster $j$ in treatment arm $i$, let $\mu_{i,j}$ be the u
 
 $$
 Var(\hat{\theta}_{CRT}) = \frac{2}{Nm} (\sigma^2_W + m \sigma^2_B),
-$$ 
+$$
 
 where $m$ is the (average) number of study units per cluster and $N$ is the number of clusters per treatment arm.
 
@@ -483,10 +475,10 @@ Note that in settings where you have a choice of $m$, it will affect the sample 
 
 Let $Y$ be the outcome of interest (can be binary, discrete, or continuous) and $X$ be an indicator of the exposure status (for now, we'll think of a binary exposure, but it can extend to categorical or continuous). Below, we will use $X=1$ for "exposed" and $X=0$ for "unexposed".
 
-- $Y(1)$ denotes the potential outcome if an individual had been exposed (status 1). $Y(1) = Y$ among the units with $X=1$.
-- $Y(0)$ denotes the potential outcome if an individual had been unexposed (status 0). $Y(0) = Y$ among the units with $X=0$.
-- $E[Y(1)]$ is the expected (or average) value if everyone were exposed; $E[Y(0)]$ is the expected value if everyone were unexposed.
-- $E[Y|X=1]$ is the expected value of individuals who actually were assigned treatment 1; $E[Y|X=0]$ is the expected value of individuals who actually were assigned treatment 0.
+-   $Y(1)$ denotes the potential outcome if an individual had been exposed (status 1). $Y(1) = Y$ among the units with $X=1$.
+-   $Y(0)$ denotes the potential outcome if an individual had been unexposed (status 0). $Y(0) = Y$ among the units with $X=0$.
+-   $E[Y(1)]$ is the expected (or average) value if everyone were exposed; $E[Y(0)]$ is the expected value if everyone were unexposed.
+-   $E[Y|X=1]$ is the expected value of individuals who actually were assigned treatment 1; $E[Y|X=0]$ is the expected value of individuals who actually were assigned treatment 0.
 
 ### 4.2. Requirements for Causal Inference
 
